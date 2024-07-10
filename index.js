@@ -31,7 +31,7 @@ cron.schedule('* * * * *', () => {
 io.on("connection", async (socket) => {
   console.log(`User connected :${socket.id}`); 
 
-  socket.on("join_room", (data) => {   
+  socket.on("join_room", (data) => {    
     socket.join(data);
     console.log(`User with ID: ${socket.id} joined room : ${data}`);
   });
@@ -39,7 +39,7 @@ io.on("connection", async (socket) => {
     socket.to(data.room).emit("receive_message", data);
   }); 
  
-  socket.on("disconnect", () => { 
+  socket.on("disconnect", () => {  
     console.log(`user disconnected`, socket.id); 
   });
 });
