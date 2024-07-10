@@ -17,12 +17,16 @@ app.use(express.json())
 const io = new Server(server, {
     cors: {
         origin: "https://talkflow.vercel.app/chat",
-        // methods:"GET,POST"
+        // methods:"GET,POST" 
       }, 
       transports: ["websocket", "polling"],
 });
 
 app.use(chatRoute)
+
+cron.schedule('* * * * *', () => {
+  console.log('Running a task every minute');
+});
 
 io.on("connection", async (socket) => {
   console.log(`User connected :${socket.id}`); 
