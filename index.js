@@ -5,7 +5,7 @@ import {createServer} from "http";
 import cors from "cors";
 import { Server } from "socket.io";
 import connection from "./config/db.js";
-import {CronJob} from 'cron'
+import cron from 'node-cron'
 import chatRoute from './Routes/chatRoute.js'
 const app = express();
 connection()
